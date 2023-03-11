@@ -198,6 +198,17 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
     background: $darkGrayBlue-100;
     color: $white;
     font-weight: 700;
+    font-family: 'Hanken Grotesk', sans-serif;
+    transition: background-color 300ms;
+    cursor: pointer;
+    position: relative;
+}
+
+.btn-continue {
+    span {
+        position: relative;
+        z-index: 1;
+    }
 }
 
 @media only screen and (min-width: 1300px) {
@@ -208,7 +219,7 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-
+        gap: 1rem;
     }
 
     main {
@@ -246,13 +257,27 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
 
 
     .summary {
-        box-shadow: 5px 5px 0px $lightLavender;
+        box-shadow: 10px 10px 25px $paleBlue;
         border-top-right-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
 
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        padding-bottom: 2rem;
     }
 
-    .btn-continue {}
+    .btn-continue:hover::before {
+        border-radius: 1.5rem;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $bgGradient;
+        width: inherit;
+        height: inherit;
+    }
 }
