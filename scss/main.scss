@@ -43,15 +43,19 @@ $lightLavender: hsl(241, 100%, 89%);
 $darkGrayBlue: hsla(224, 30%, 27%, .6);
 $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
 
+@mixin Flex($direction, $just-content, $align-items) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $just-content;
+    align-items: $align-items;
+}
+
 .result {
     background: $bgGradient;
     border-bottom-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include Flex(column, center, center);
     text-align: center;
 
     // min-height: 18rem;
@@ -62,15 +66,12 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
     }
 
     .circle {
+        @include Flex(column, center, center);
+
         background: $circleGradient;
         border-radius: 50%;
         min-width: 7.1rem;
         min-height: 7.1rem;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
 
         position: relative;
         margin-bottom: 1.5rem;
@@ -104,8 +105,8 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
 
 .summary {
 
-    display: flex;
-    flex-direction: column;
+    @include Flex(column, none, none);
+
     gap: 1.1rem;
     padding: 1.4rem 1.6rem;
 
@@ -116,14 +117,12 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
 
     .summaries {
 
-        display: flex;
-        flex-direction: column;
+        @include Flex(column, none, none);
         gap: .9rem;
 
         .content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+
+            @include Flex(row, space-between, center);
             padding: .7rem;
             border-radius: .5rem;
 
@@ -211,13 +210,25 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
     }
 }
 
+.btn-continue:hover::before {
+    border-radius: 1.5rem;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $bgGradient;
+    width: inherit;
+    height: inherit;
+}
+
 @media only screen and (min-width: 992px) {
 
     body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+
+        @include Flex(column, center, center);
         min-height: 100vh;
         gap: 1rem;
     }
@@ -230,12 +241,10 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
     }
 
     .result {
+        @include Flex(column, space-evenly, none);
         border-radius: 1.5rem;
         margin: 0;
         padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
 
         .result-title {
             font-size: 1.2rem;
@@ -257,27 +266,11 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
 
 
     .summary {
+
+        @include Flex(column, space-evenly, none);
         box-shadow: 10px 10px 25px $paleBlue;
         border-top-right-radius: 1.5rem;
         border-bottom-right-radius: 1.5rem;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
         padding-bottom: 2rem;
-    }
-
-    .btn-continue:hover::before {
-        border-radius: 1.5rem;
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: $bgGradient;
-        width: inherit;
-        height: inherit;
     }
 }
