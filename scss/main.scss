@@ -50,6 +50,7 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
     align-items: $align-items;
 }
 
+
 .result {
     background: $bgGradient;
     border-bottom-left-radius: 2rem;
@@ -235,6 +236,10 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
 
     main {
         max-width: 35rem;
+        width: 100%;
+    }
+
+    .main--content {
         width: 100%;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
