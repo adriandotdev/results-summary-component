@@ -19,17 +19,17 @@ html {
 }
 
 /** Primary */
-$red: hsla(0, 100%, 67%, .81);
-$lightRed: hsla(0, 100%, 67%, .1);
+$red: hsl(0, 100%, 67%, .80);
+$lightRed: hsla(0, 100%, 67%, .06);
 
-$orangeyYellow: hsl(39, 100%, 56%);
-$lightOrangeyYellow: hsla(39, 100%, 56%, .1);
+$orangeyYellow: hsla(39, 100%, 56%, .80);
+$lightOrangeyYellow: hsla(39, 100%, 56%, .06);
 
-$greenTeal: hsl(166, 100%, 37%);
-$lightGreenTeal: hsla(166, 100%, 37%, .1);
+$greenTeal: hsla(166, 100%, 37%, .80);
+$lightGreenTeal: hsla(166, 100%, 37%, .06);
 
-$cobaltBlue: hsl(234, 85%, 45%);
-$lightCobaltBlue: hsla(234, 85%, 45%, .1);
+$cobaltBlue: hsla(234, 85%, 45%, .80);
+$lightCobaltBlue: hsla(234, 85%, 45%, .06);
 
 /** Gradients */
 $bgGradient: linear-gradient(to bottom, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
@@ -124,7 +124,7 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
         .content {
 
             @include Flex(row, space-between, center);
-            padding: .7rem;
+            padding: .8rem .8rem;
             border-radius: .5rem;
 
             .section {
@@ -249,23 +249,37 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
         @include Flex(column, space-evenly, none);
         border-radius: 1.5rem;
         margin: 0;
-        padding: 0;
+        gap: .5rem;
 
         .result-title {
             font-size: 1.2rem;
+            margin: 0;
         }
 
         .circle {
-            min-width: 8.5rem;
-            min-height: 8.5rem;
+            min-width: 10rem;
+            min-height: 10rem;
+            margin: 0;
+
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        .remarks {
+            @include Flex(column, none, none);
+            gap: .01rem;
         }
 
         .remark {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
         }
 
         .remark-desc {
             max-width: 25ch;
+            margin: 0;
+            font-size: .8rem;
+            margin-bottom: .5rem;
         }
     }
 
@@ -276,6 +290,11 @@ $darkGrayBlue-100: hsla(224, 30%, 27%, 1);
         box-shadow: 10px 10px 25px $paleBlue;
         border-top-right-radius: 1.5rem;
         border-bottom-right-radius: 1.5rem;
-        padding-bottom: 2rem;
+        gap: .5rem;
+
+        .summaries {
+
+            margin-top: 1rem;
+        }
     }
 }
